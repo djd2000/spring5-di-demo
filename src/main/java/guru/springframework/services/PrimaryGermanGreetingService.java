@@ -14,10 +14,15 @@ import org.springframework.stereotype.Service;
 public class PrimaryGermanGreetingService implements GreetingService {
 
 	@Autowired
-    private GreetingRepository greetingRepository;
+	private GreetingRepository greetingRepository;
 
-    @Override
-    public String sayGreeting() {
-        return greetingRepository.getGermanGreeting();
-    }
+	public PrimaryGermanGreetingService(GreetingRepository greetingRepository) {
+		super();
+		this.greetingRepository = greetingRepository;
+	}
+
+	@Override
+	public String sayGreeting() {
+		return greetingRepository.getGermanGreeting();
+	}
 }
