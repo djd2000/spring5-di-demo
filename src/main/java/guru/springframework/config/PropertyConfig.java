@@ -17,11 +17,11 @@ import guru.springframework.examplebeans.FakeJmsBroker;
  *
  */
 @Configuration
-@PropertySource({"classpath:datasource.properties","classpath:jms.properties"})
+//@PropertySource({"classpath:datasource.properties","classpath:jms.properties"})
 public class PropertyConfig {
 
-	@Autowired
-	Environment env;
+//	@Autowired
+//	Environment env;
 
 	@Value("${guru.username}")
 	String user;
@@ -45,7 +45,7 @@ public class PropertyConfig {
 	public FakeDataSource fakeDataSource() {
 		FakeDataSource fakeDataSource = new FakeDataSource();
 //		fakeDataSource.setUser(user);
-		fakeDataSource.setUser(env.getProperty("USERNAME"));
+		fakeDataSource.setUser(user);
 		fakeDataSource.setPassword(password);
 		fakeDataSource.setUrl(url);
 		return fakeDataSource;
@@ -62,9 +62,9 @@ public class PropertyConfig {
 
 	}
 
-	@Bean
-	public static PropertySourcesPlaceholderConfigurer properties() {
-		PropertySourcesPlaceholderConfigurer propertySourcePlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
-		return propertySourcePlaceholderConfigurer;
-	}
+//	@Bean
+//	public static PropertySourcesPlaceholderConfigurer properties() {
+//		PropertySourcesPlaceholderConfigurer propertySourcePlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
+//		return propertySourcePlaceholderConfigurer;
+//	}
 }
